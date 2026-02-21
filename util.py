@@ -7,7 +7,7 @@ import random
 import re
 import urllib
 import urllib3
-import cchardet
+import chardet
 import socket
 import ipaddress
 import configparser
@@ -353,7 +353,7 @@ class Utilty:
             encoding = obj_match.group(1)
             self.print_message(WARNING, 'Set encoding: {}'.format(encoding))
         else:
-            guess = cchardet.detect(data)
+            guess = chardet.detect(data)
             if guess['encoding'] is not None:
                 encoding = guess['encoding']
                 self.print_message(WARNING, 'Set encoding: {}'.format(encoding))
