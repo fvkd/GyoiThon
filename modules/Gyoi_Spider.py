@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # coding:utf-8
-import time
 import codecs
 import scrapy
 from scrapy.http import Request
@@ -59,7 +58,6 @@ class SimpleSpider(scrapy.Spider):
         self.fout.write(response.body.decode(self.encoding))
         for href in response.css('a::attr(href)'):
             full_url = response.urljoin(href.extract())
-            time.sleep(self.delay_time)
 
             # Set proxy server.
             if self.proxy_server != '':
